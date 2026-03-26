@@ -81,7 +81,7 @@ const StepperForm = () => {
           <p className="text-gray-500 mb-2">Your details were submitted securely using AES-256 encryption.</p>
           <div className="bg-green-50 border border-green-200 rounded-lg px-4 py-3 mb-6 text-left">
             <p className="text-xs text-green-700 font-medium">🔐 Security Info</p>
-            <p className="text-xs text-green-600 mt-1">Data was encrypted client-side with a one-time AES key before transmission. The server decrypted and re-encrypted the response.</p>
+            <p className="text-xs text-green-600 mt-1">Your Data is Safe With Our Platform Because it is end to end encrypted</p>
           </div>
           <button
             onClick={() => navigate("/dashboard")}
