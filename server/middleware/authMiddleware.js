@@ -3,15 +3,11 @@ const User = require("../models/User");
 
 const protect = async (req, res, next) => {
   try {
-    // Expect: Authorization: Bearer <token>
     const authHeader = req.headers.authorization;
-
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
       return res.status(401).json({ message: "Access token missing" });
     }
-
     const token = authHeader.split(" ")[1];
-
     let decoded;
     try {
       decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
@@ -26,8 +22,7 @@ const protect = async (req, res, next) => {
     if (!user) {
       return res.status(401).json({ message: "User not found" });
     }
-
-    req.user = user; // Attach user to request
+    req.user = user;
     next();
   } catch (error) {
     return res.status(500).json({ message: "Server error", error: error.message });
